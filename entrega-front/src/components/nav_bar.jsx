@@ -21,8 +21,14 @@ export const NavBar = () => {
       >
         Ampolleta
       </NavLink>
+      <NavLink
+        className={navLinkClass}
+        to='/payment'
+      >
+        Pago
+      </NavLink>
     </nav>
   )
 }
- 
+
 export default NavBar

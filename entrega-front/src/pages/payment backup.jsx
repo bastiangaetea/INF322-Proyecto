@@ -1,23 +1,19 @@
-import React, { useState, useContext } from 'react';
-import { PaymentContext } from '../context/PaymentContext';
+import React, { useState } from 'react';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import Button from '@mui/material/Button';
-import { useNavigate } from 'react-router-dom';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import TextField from '@mui/material/TextField';
+import { useNavigate } from 'react-router-dom';
 
 export const Payment = () => {
-  const { agregarPago } = useContext(PaymentContext);
   const [value, setValue] = useState('Santander **** 1234');
-  const navigate = useNavigate();
-
   const [paymentMethods, setPaymentMethods] = useState([
     'Santander **** 1234',
     'BCI Débito **** 4231',
@@ -31,17 +27,6 @@ export const Payment = () => {
     cvv: '',
     cardHolderName: '',
   });
-
-  const handlePayment = () => {
-    if (value) {
-      const tipoPago = value.includes('Débito') ? 'T. Débito' : 'T. Crédito';
-      agregarPago('Octubre 2024', 178987, tipoPago);
-      alert(`Pago procesado con la tarjeta seleccionada: ${value}`);
-      navigate('/payment');
-    } else {
-      alert("Por favor, seleccione un método de pago.");
-    }
-  };
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -91,6 +76,17 @@ export const Payment = () => {
     }
   };
 
+  const handlePayment = () => {
+    if (value) {
+      alert(`Procesando el pago con la tarjeta seleccionada: ${value}`);
+      // Aquí puedes añadir la lógica para realizar el pago
+    } else {
+      alert("Por favor, seleccione un método de pago.");
+    }
+  };
+
+  const navigate = useNavigate();
+
   const handleCancel = () => {
     navigate('/payment');
   };
@@ -99,7 +95,7 @@ export const Payment = () => {
     <>
       <h2>Pagando gastos comunes</h2>
       <FormControl>
-        <FormLabel>Elige cómo pagar</FormLabel>
+        <FormLabel id="demo-controlled-radio-buttons-group">Elige cómo pagar</FormLabel>
         <RadioGroup
           aria-labelledby="demo-controlled-radio-buttons-group"
           name="controlled-radio-buttons-group"
@@ -116,6 +112,7 @@ export const Payment = () => {
         Agregar nueva tarjeta
       </Button>
 
+      {/* Modal */}
       <Dialog open={open} onClose={handleCloseModal}>
         <DialogTitle>Agregar nueva tarjeta</DialogTitle>
         <DialogContent>
@@ -193,11 +190,11 @@ export const Payment = () => {
       <br/>
       <br/>
       <br/>
-
-      <Button variant="contained" onClick={handlePayment} style={{ marginLeft: '10px' }}>
+      
+      <Button variant="contained" onClick={handlePayment} style={{ marginLeft: '700px' }}>
         Realizar pago
       </Button>
-      <Button variant="contained" onClick={handleCancel} style={{ marginLeft: '10px' }}>
+      <Button variant='contained' onClick={handleCancel} style={{ marginLeft: '10px' }}>
         Cancelar Pago
       </Button>
     </>

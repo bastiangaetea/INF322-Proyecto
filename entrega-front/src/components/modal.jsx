@@ -18,7 +18,6 @@ const MyModal = ({ open, onClose }) => {
   const navigate = useNavigate();
 
   const handlePayment = () => {
-    // Aquí defines la ruta a la que deseas redirigir, por ejemplo, "/confirmacion-pago"
     navigate('/payment/pago');
   };
 

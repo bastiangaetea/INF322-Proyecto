@@ -18,6 +18,8 @@ export const NavBar = () => {
       <div className='nav-bar__links'>
         <NavLink className={navLinkClass} to='/'>Inicio</NavLink>
         <NavLink className={navLinkClass} to='/payment'>Pago</NavLink>
+        <NavLink className={navLinkClass} to='/Register'>Registrar visitas</NavLink>
+        <NavLink className={navLinkClass} to='/RegisterVisits'>Registro de visitas</NavLink>
       </div>
     </nav>
   );

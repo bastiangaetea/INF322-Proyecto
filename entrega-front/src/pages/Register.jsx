@@ -1,47 +1,33 @@
-// /pages/VisitsHistoryPage.jsx
+// /pages/VisitHistoryPage.jsx
 
 import React, { useContext } from 'react';
-import { VisitsContext } from '../context/VisitsContext'; // Importando el contexto correcto
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
+import { VisitsContext } from '../context/VisitsContext'; // Usando VisitsContext
+import { Container, Typography, List, ListItem, ListItemText } from '@mui/material';
 
-const VisitsHistoryPage = () => {
-  const { historialVisitas } = useContext(VisitsContext); // Usando VisitsContext
+const VisitHistoryPage = () => {
+  const { historialVisitas } = useContext(VisitsContext); // Obteniendo el historial de visitas
 
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="sm">
       <Typography variant="h4" component="h1" gutterBottom>
         Historial de Visitas
       </Typography>
-      <TableContainer component={Paper}>
-        <Table aria-label="visits history table">
-          <TableHead>
-            <TableRow>
-              <TableCell>Nombre de la Visita</TableCell>
-              <TableCell>Fecha</TableCell>
-              <TableCell>Notas</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {historialVisitas.map((visit, index) => (
-              <TableRow key={index}>
-                <TableCell>{visit.name}</TableCell>
-                <TableCell>{visit.date}</TableCell>
-                <TableCell>{visit.notes}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      {historialVisitas.length === 0 ? (
+        <Typography>No hay visitas registradas.</Typography>
+      ) : (
+        <List>
+          {historialVisitas.map((visit, index) => (
+            <ListItem key={index}>
+              <ListItemText
+                primary={`Visitante: ${visit.name}`}
+                secondary={`Fecha: ${visit.date} | Departamento: ${visit.department} | Notas: ${visit.notes}`}
+              />
+            </ListItem>
+          ))}
+        </List>
+      )}
     </Container>
   );
 };
 
-export default VisitsHistoryPage;
+export default VisitHistoryPage;

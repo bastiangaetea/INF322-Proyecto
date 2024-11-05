@@ -2,11 +2,11 @@ import React from 'react'
 import { BrowserRouter, Routes, Route, useLocation, Link } from 'react-router-dom'
 
 import HomePage from '../pages/home_page'
-import LightbulbPage from '../pages/lightbulb_page'
 import PaymentPage from '../pages/payment_page'
 import Payment from '../pages/payment'
 import RegisterVisitPage from '../pages/Register_visits';
 import VisitsHistoryPage from '../pages/Register';
+import MessagingPage from '../pages/MessagingPage';
 
 import NavBar from '../components/nav_bar'
 import Logo from '../assets/logo.jpg'
@@ -29,11 +29,11 @@ const Layout = () => {
       <div className="layout__page">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/lightbulb" element={<LightbulbPage />} />
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/payment/pago" element={<Payment />} />
           <Route path="/Register" element={<RegisterVisitPage />} />
           <Route path="/RegisterVisits" element={<VisitsHistoryPage />} />
+          <Route path="/messaging" element={<MessagingPage />} />
         </Routes>
       </div>
     </div>

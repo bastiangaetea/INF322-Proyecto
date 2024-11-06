@@ -1,5 +1,46 @@
+/*
 .nav-bar {
   display: flex;
   background-color: #ccc;
   padding-left: 20px;
+}
+*/
+.nav-bar {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #888888;
+
+  &__logo {
+    margin-right: 20px;
+    text-decoration: none;
+
+    &-image {
+      height: 40px;
+      width: auto;
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 3px;
+  }
+
+  &__link {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #8893b6;
+    }
+
+    &--active {
+      font-weight: bold;
+      color: #1abc9c;
+    }
+  }
 }

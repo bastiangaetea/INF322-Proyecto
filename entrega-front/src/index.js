@@ -2,6 +2,7 @@ import React from 'react'
 import { createRoot } from 'react-dom/client';
 import { PaymentProvider } from './context/PaymentContext';
 import { VisitsProvider } from './context/VisitsContext';
+import { ReservationProvider } from './context/ReservationContext';
 
 import Layout from './components/layout'
 
@@ -14,9 +15,11 @@ const root = createRoot(document.getElementById('root'));
 root.render(
     <PaymentProvider>
         <VisitsProvider>
-            <BrowserRouter>
-                <Layout />
-            </BrowserRouter>
+            <ReservationProvider>
+                <BrowserRouter>
+                    <Layout />
+                </BrowserRouter>
+            </ReservationProvider>
         </VisitsProvider>
     </PaymentProvider>
 );

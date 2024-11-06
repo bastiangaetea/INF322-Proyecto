@@ -7,6 +7,7 @@ import Payment from '../pages/payment'
 import RegisterVisitPage from '../pages/Register_visits';
 import VisitsHistoryPage from '../pages/Register';
 import MessagingPage from '../pages/MessagingPage';
+import ReservationPage from '../pages/ReservationPage'
 
 import NavBar from '../components/nav_bar'
 import Logo from '../assets/logo.jpg'
@@ -34,6 +35,7 @@ const Layout = () => {
           <Route path="/Register" element={<RegisterVisitPage />} />
           <Route path="/RegisterVisits" element={<VisitsHistoryPage />} />
           <Route path="/messaging" element={<MessagingPage />} />
+          <Route path="/reservar" element={<ReservationPage />} />
         </Routes>
       </div>
     </div>

@@ -17,7 +17,7 @@ export const NavBar = () => {
       </NavLink>
       <div className='nav-bar__links'>
         <NavLink className={navLinkClass} to='/'>Inicio</NavLink>
-        <NavLink className={navLinkClass} to='/payment'>Pago</NavLink>
+        <NavLink className={navLinkClass} to='/payment'>Gastos Comunes</NavLink>
         <NavLink className={navLinkClass} to='/Register'>Registrar visitas</NavLink>
         <NavLink className={navLinkClass} to='/RegisterVisits'>Registro de visitas</NavLink>
         <NavLink className={navLinkClass} to='/messaging'>Mensajeria</NavLink>

@@ -1,5 +1,3 @@
-// /pages/RegisterVisitPage.jsx
-
 import React, { useState, useContext } from 'react';
 import { VisitsContext } from '../context/VisitsContext'; // Cambiado a VisitsContext
 import Button from '@mui/material/Button';
@@ -12,15 +10,29 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 
 const RegisterVisitPage = () => {
+  let today = new Date();
+  console.log(today);
+  let dd = today.getDate();
+  let mm = today.getMonth() + 1;
+  let yyyy = today.getFullYear();
+  if (dd < 10) {
+    dd = '0' + dd;
+  }
+  if (mm < 10) {
+    mm = '0' + mm;
+  }
+  today = yyyy + '-' + mm + '-' + dd;
+  console.log(today);
+
   const { addVisitRecord } = useContext(VisitsContext); // Usando VisitsContext
   const [visitData, setVisitData] = useState({
     name: '',
-    date: '',
-    department: '',
+    date: today,
+    department: '103A',
     notes: ''
   });
 
-  const departments = ['101A', '101B', '102A', '102B', '103A', '103B', '104A', '104B']; // Lista de departamentos (puedes agregar más)
+  const departments = ['103A']; 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,7 +42,7 @@ const RegisterVisitPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addVisitRecord(visitData); // Pasar el objeto con el departamento
-    setVisitData({ name: '', date: '', department: '', notes: '' }); // Limpiar campos después de agregar la visita
+    setVisitData({ name: '', date: today, department: '103A', notes: '' }); // Limpiar campos después de agregar la visita
   };
 
   return (

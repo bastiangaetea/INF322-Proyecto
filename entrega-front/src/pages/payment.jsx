@@ -35,7 +35,7 @@ export const Payment = () => {
   const handlePayment = () => {
     if (value) {
       const tipoPago = value.includes('Débito') ? 'T. Débito' : 'T. Crédito';
-      agregarPago('Octubre 2024', 178987, tipoPago);
+      agregarPago('Octubre 2024', 178987, tipoPago, 2922);
       alert(`Pago procesado con la tarjeta seleccionada: ${value}`);
       navigate('/payment');
     } else {

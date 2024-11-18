@@ -1,13 +1,14 @@
-// /pages/MessagingPage.jsx
-import React from 'react';
-import DepartmentSelector from '../components/DepartmentSelector';
+import React, { useContext } from 'react';
+import DepartmentMessaging from '../components/DepartmentMessaging'; // Asegúrate de que este sea el componente actualizado
 import Container from '@mui/material/Container';
+import { UserContext } from '../context/UserContext';
 
 const MessagingPage = () => {
+  const { userRole } = useContext(UserContext);
+
   return (
     <Container maxWidth="md">
-      <h2>Sistema de Mensajería</h2>
-      <DepartmentSelector />
+      <DepartmentMessaging userRole={userRole} />
     </Container>
   );
 };

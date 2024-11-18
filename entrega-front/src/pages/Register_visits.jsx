@@ -28,11 +28,11 @@ const RegisterVisitPage = () => {
   const [visitData, setVisitData] = useState({
     name: '',
     date: today,
-    department: '103A',
+    department: '2A',
     notes: ''
   });
 
-  const departments = ['103A']; 
+  const departments = ['2A']; 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,7 +42,7 @@ const RegisterVisitPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addVisitRecord(visitData); // Pasar el objeto con el departamento
-    setVisitData({ name: '', date: today, department: '103A', notes: '' }); // Limpiar campos después de agregar la visita
+    setVisitData({ name: '', date: today, department: '2A', notes: '' }); // Limpiar campos después de agregar la visita
   };
 
   return (

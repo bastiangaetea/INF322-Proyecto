@@ -7,7 +7,8 @@ import Payment from '../pages/payment'
 import RegisterVisitPage from '../pages/Register_visits';
 import VisitsHistoryPage from '../pages/Register';
 import MessagingPage from '../pages/MessagingPage';
-import ReservationPage from '../pages/ReservationPage'
+import ReservationPage from '../pages/ReservationPage';
+import Login from '../pages/login';
 
 import NavBar from '../components/nav_bar'
 import Logo from '../assets/logo.jpg'
@@ -19,17 +20,18 @@ const Layout = () => {
   return (
     <div className="layout">
       <div className="layout__header">
-        <Link to="/" className="layout__logo">
+        <Link to="/home" className="layout__logo">
           <img src={Logo} alt="Logo" style={{ height: '80px' }} />
         </Link>
         {location.pathname !== '/payment/pago' && (
           <h1 className="layout__title">¡Bienvenido al portal de tu comunidad!</h1>
         )}
       </div>
-      {location.pathname !== '/payment/pago' && <NavBar />}
+      {(location.pathname !== '/payment/pago' && location.pathname !== '/') && <NavBar />}
       <div className="layout__page">
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/payment/pago" element={<Payment />} />
           <Route path="/Register" element={<RegisterVisitPage />} />
